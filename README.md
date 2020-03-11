@@ -31,3 +31,4 @@ The OO Phrase Hunter Guessing Game features the following criteria;
 15. App styles have been personalized and changes have been noted in the README.md file and the project submission notes
       Background of keyboard changed using only Javascript
       emoji's added to win and loose display using only Javascript
+16. Event listener has been added for the keydown or keyup event so that pressing a physical keyboard button results in the handleInteraction() method being called for the associated onscreen keyboard button
