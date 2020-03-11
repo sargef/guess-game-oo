@@ -23,6 +23,7 @@
        'Do what is right not what is easy'
    ];
      this.activePhrase = null;
+     this.usedLetters = [];
    }
 
 
@@ -48,19 +49,23 @@ createPhrases() {
    }
 
 // Function to handle game interaction and functionality
-   handleInteraction(button) {
-       button.disabled = true;
-       if(!this.activePhrase.checkLetter(button.innerHTML)){
-           button.classList.add('wrong');
-           this.removeLife();
-       } else {
-           button.classList.add('chosen');
-           this.activePhrase.showMatchedLetter(button.innerHTML);
-           if(this.checkForWin()){
-              this.gameOver(true);
-           }
-       }
-   };
+handleInteraction(button) {
+		let matched = this.activePhrase.checkLetter(button.innerHTML);
+		if( (this.usedLetters.includes(button)) !== true ) {
+			if(matched === false) {
+				button.classList.add('wrong');
+				this.removeLife();
+			}
+			if (matched === true) {
+				button.classList.add('chosen');
+				this.activePhrase.showMatchedLetter(button.innerHTML);
+				if(this.checkForWin()) {
+				this.gameOver();
+				}
+			}
+			this.usedLetters.push(button);
+		}
+	}
 
 // Function to remove hearts if incorrect letter is selected
    removeLife() {
