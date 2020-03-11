@@ -51,18 +51,18 @@ createPhrases() {
 // Function to handle game interaction and functionality
 handleInteraction(button) {
 		let matched = this.activePhrase.checkLetter(button.innerHTML);
-		if( (this.usedLetters.includes(button)) !== true ) {
-			if(matched === false) {
+		if ( (this.usedLetters.includes(button)) !== true ) {
+			if (matched === false) {
 				button.classList.add('wrong');
 				this.removeLife();
-			}
-			if (matched === true) {
+		 	} else {
+        (matched === true);
 				button.classList.add('chosen');
 				this.activePhrase.showMatchedLetter(button.innerHTML);
-				if(this.checkForWin()) {
-				this.gameOver();
-				}
-			}
+  				if (this.checkForWin()) {
+  				this.gameOver(true);
+			  	}
+		  	}
 			this.usedLetters.push(button);
 		}
 	}
