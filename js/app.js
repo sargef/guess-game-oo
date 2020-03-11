@@ -5,7 +5,6 @@ const scoreboard = document.querySelector('#scoreboard ol');
 const newGameButton = document.querySelector('#btn__reset');
 const overlay = document.querySelector('#overlay');
 
-
 // Variables to locate score message display and append container for images
 const winImage = document.querySelector('#overlay');
 const looseImage = document.querySelector('#overlay');
@@ -62,4 +61,12 @@ keyboardButtons.forEach((button) => {
     button.addEventListener('click', (e) => {
         game.handleInteraction(e.target);
     })
+});
+
+// Event listener for physical keypress buttons selected
+window.addEventListener('keyup', (e) => {
+ if( e.keyCode >= 65 && e.keyCode <= 90 ) {
+   let keyed = Array.from(keyboardButtons).filter(key => key.textContent === e.key);
+   game.handleInteraction(keyed[0]);
+    }
 });
