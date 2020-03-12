@@ -56,7 +56,7 @@ handleInteraction(button) {
 				button.classList.add('wrong');
 				this.removeLife();
 		 	} else {
-        (matched === true);
+       				 (matched === true);
 				button.classList.add('chosen');
 				this.activePhrase.showMatchedLetter(button.innerHTML);
   				if (this.checkForWin()) {
